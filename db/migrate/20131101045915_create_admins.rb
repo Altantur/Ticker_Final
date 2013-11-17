@@ -1,5 +1,5 @@
 class CreateAdmins < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :admins do |t|
       t.string "username", :limit => 25
       t.string "email", :null => false
@@ -7,5 +7,9 @@ class CreateAdmins < ActiveRecord::Migration
       t.timestamps
       t.timestamps
     end
+  end
+
+  def self.down
+  	drop_table :admins
   end
 end

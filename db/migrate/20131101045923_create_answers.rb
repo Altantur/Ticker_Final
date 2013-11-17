@@ -1,9 +1,15 @@
 class CreateAnswers < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :answers do |t|
-      t.string "value", :null => false
-      t.string "result"
+      t.references :polls
+      t.string "value", :limit => 100
+      t.string "result", :limit => 100
       t.timestamps
     end
+    add_index :answers, :polls_id
+  end
+
+  def self.down
+  	drop_table :answers
   end
 end
