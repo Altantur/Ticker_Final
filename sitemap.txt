@@ -1,0 +1,10 @@
+Static pages:
+
+/ --> /home
+/contact
+/
+
+
+
+Models:
+Add VAlidations
