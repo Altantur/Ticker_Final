@@ -3,6 +3,7 @@ Ticker::Application.routes.draw do
 
   get "main/contact"
 
+  get "admins/login"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

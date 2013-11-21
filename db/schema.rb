@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117092538) do
+ActiveRecord::Schema.define(:version => 20131121152208) do
 
   create_table "admins", :force => true do |t|
     t.string   "username",   :limit => 25
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20131117092538) do
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "counter"
   end
 
   add_index "news", ["admins_id"], :name => "index_news_on_admins_id"
