@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131121152208) do
+ActiveRecord::Schema.define(:version => 20131126180335) do
 
   create_table "admins", :force => true do |t|
     t.string   "username",   :limit => 25
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(:version => 20131121152208) do
   end
 
   add_index "answers", ["polls_id"], :name => "index_answers_on_polls_id"
+
+  create_table "authorizations", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -115,12 +123,13 @@ ActiveRecord::Schema.define(:version => 20131121152208) do
   add_index "ratings", ["products_id", "users_id"], :name => "index_ratings_on_products_id_and_users_id"
 
   create_table "users", :force => true do |t|
-    t.string   "firstName",  :limit => 25
-    t.string   "lasName",    :limit => 25
-    t.string   "email",                    :null => false
-    t.string   "password",   :limit => 40
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "password"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

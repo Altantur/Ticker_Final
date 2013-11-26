@@ -9,17 +9,34 @@
               <div class="row">
                   <nav>
                     <ul class="nav pull-left">
-                      <li><%= link_to "Home",    '#' %></li>
-                      <li><%= link_to "Contact",    '#' %></li>
+                      <li><%= link_to "Home",    '/' %></li>
+                      <li><%= link_to "Contact",    '/contact' %></li>
+                      <% if signed_in? %>
                       <li class="dropdown">
                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                        Sign in with <span class='caret'></span>
+                        Hello, <%= User.find(session[:user_id]).name %> <span class='caret'></span>
                        </a>
-                       <ul class='dropdown-menu'>
-                          <li><a href='#'>Facebook</a></li>
-                          <li><a href='#'>Twitter</a></li>
-                          <li><a href='#'>Google+</a></li>
-                        </ul>
+                      <ul class='dropdown-menu'>
+                        <li id="fat-menu" class="dropdown">
+                            <li><%= link_to "Profile", "#" %></li>
+                            <li><%= link_to "Settings", '#' %></li>
+                            <li class="divider"></li>
+                            <li>
+                              <%= link_to "Sign out", "/logout" %>
+                            </li>
+                        </li>
+                      </ul>
+                      <% else %>
+                      <li class="dropdown">
+                       <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                        Login <span class='caret'></span>
+                       </a>
+                      <ul class='dropdown-menu'>
+                        <li id="fat-menu" class="dropdown">
+                            <li><%= link_to "Connect With Facebook", "/auth/facebook" %></li>
+                        </li>
+                      </ul>
+                      <% end %>
                       </li>
                     </ul>
                   </nav>
