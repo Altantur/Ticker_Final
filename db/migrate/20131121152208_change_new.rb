@@ -1,3 +1,4 @@
+
 class ChangeNew < ActiveRecord::Migration
   def up
   	add_column :news , :counter, :integer
@@ -7,3 +8,5 @@ class ChangeNew < ActiveRecord::Migration
   	remove_column :news, :counter
   end
 end
+
+

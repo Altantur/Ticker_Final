@@ -11,34 +11,57 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131203213809) do
+ActiveRecord::Schema.define(:version => 20131204092649) do
 
-  create_table "admins", :force => true do |t|
-    t.string   "username",   :limit => 25
-    t.string   "email",                    :null => false
-    t.string   "password",   :limit => 40
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+  create_table "active_admin_comments", :force => true do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   :null => false
+    t.string   "resource_type", :null => false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
+  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "admin_users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
+  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
   create_table "ads", :force => true do |t|
-    t.integer  "admins_id"
     t.string   "value",      :limit => 100
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+    t.string   "image_path"
   end
 
-  add_index "ads", ["admins_id"], :name => "index_ads_on_admins_id"
-
   create_table "answers", :force => true do |t|
-    t.integer  "polls_id"
     t.string   "value",      :limit => 100
     t.string   "result",     :limit => 100
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+    t.integer  "poll_id"
   end
 
-  add_index "answers", ["polls_id"], :name => "index_answers_on_polls_id"
+  add_index "answers", ["poll_id"], :name => "index_answers_on_poll_id"
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -49,90 +72,77 @@ ActiveRecord::Schema.define(:version => 20131203213809) do
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name",       :limit => 100
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "category_news", :force => true do |t|
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "news_id"
-    t.integer  "categories_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "category_id"
   end
 
-  add_index "category_news", ["news_id", "categories_id"], :name => "index_category_news_on_news_id_and_categories_id"
-
-  create_table "category_products", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+  add_index "category_news", ["category_id"], :name => "index_category_news_on_category_id"
+  add_index "category_news", ["news_id"], :name => "index_category_news_on_news_id"
 
   create_table "locations", :force => true do |t|
-    t.integer  "products_id"
-    t.string   "address",     :limit => 250
+    t.string   "address",    :limit => 250
     t.float    "price"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "product_id"
   end
 
-  add_index "locations", ["products_id"], :name => "index_locations_on_products_id"
+  add_index "locations", ["product_id"], :name => "index_locations_on_product_id"
 
   create_table "news", :force => true do |t|
-    t.integer  "admins_id"
     t.string   "title"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "counter"
+    t.string   "image_path"
   end
 
-  add_index "news", ["admins_id"], :name => "index_news_on_admins_id"
-
   create_table "polls", :force => true do |t|
-    t.integer  "admins_id"
     t.string   "value",      :limit => 100
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
 
-  add_index "polls", ["admins_id"], :name => "index_polls_on_admins_id"
-
   create_table "product_categories", :force => true do |t|
-    t.integer  "products_id"
-    t.integer  "categories_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "product_id"
+    t.integer  "category_id"
   end
 
-  add_index "product_categories", ["products_id", "categories_id"], :name => "index_product_categories_on_products_id_and_categories_id"
+  add_index "product_categories", ["product_id", "category_id"], :name => "index_product_categories_on_product_id_and_category_id"
 
   create_table "products", :force => true do |t|
-    t.integer  "admins_id"
     t.string   "name",         :limit => 100
     t.date     "release_date"
     t.float    "value"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
+    t.string   "image_path"
   end
-
-  add_index "products", ["admins_id"], :name => "index_products_on_admins_id"
 
   create_table "ratings", :force => true do |t|
-    t.integer  "products_id"
-    t.integer  "users_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "product_id"
+    t.integer  "user_id"
   end
 
-  add_index "ratings", ["products_id", "users_id"], :name => "index_ratings_on_products_id_and_users_id"
+  add_index "ratings", ["product_id"], :name => "index_ratings_on_product_id"
+  add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "email"
-    t.string   "password"
     t.string   "name"
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
