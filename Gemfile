@@ -22,7 +22,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "bcrypt-ruby", :require => "bcrypt"
+gem 'activeadmin'
 
+gem "formtastic", "~> 2.2.1"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
