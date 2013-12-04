@@ -1,0 +1,16 @@
+<!-- Title -->
+	<h2>Product News | <%= Category.find(params[:id]).name %> </h2>
+
+<%if @pages != 0
+	@pages.each do |page| %>
+
+	<div class="panel mypanel-category">
+    	<div class="panel-heading"><%=page.title %></div>
+    	<div class="panel-body"><%=page.body %></div>
+    	<div class="panel-footer">Date: <%=page.created_at %> | Comments</div>
+  </div>
+
+<%end else%>
+	"Nothing found"
+
+<%end%>

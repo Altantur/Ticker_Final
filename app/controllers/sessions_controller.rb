@@ -1,23 +1,6 @@
 class SessionsController < ApplicationController
-  def new
-  end
-
-=begin
-	def create
-	  auth_hash = request.env['omniauth.auth']
-	  @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
-	  if @authorization	  	
-	    #already signed up
-	    @sessionreturntext = "Welcome back #{auth_hash["info"]["name"]}. You have already signed up."
-	  else
-	  	#sign up for first time
-	    user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
-	    user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
-	    user.save
-	    @sessionreturntext = "Hello #{user.name}! You've signed up using #{auth_hash["provider"]}."
-	  end
+	def new
 	end
-=end
 
 	def create
 	  auth_hash = request.env['omniauth.auth']
@@ -41,14 +24,14 @@ class SessionsController < ApplicationController
 	  end
 	end
 
-  	def failure
-  		flash[:failure]= "Уучлаарай одоогоор дэмжигдээгүй байнa"
+		def failure
+			flash[:failure]= "Уучлаарай одоогоор дэмжигдээгүй байнa"
 		redirect_to "/"
-  	end
+		end
 
-  	def destroy
+		def destroy
 	  	session[:user_id] = nil
 	  	flash[:success]= "You've logged out"
 		redirect_to "/"
-  	end
+		end
 end

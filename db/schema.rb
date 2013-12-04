@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131126183138) do
+ActiveRecord::Schema.define(:version => 20131203213809) do
 
   create_table "admins", :force => true do |t|
     t.string   "username",   :limit => 25
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(:version => 20131126183138) do
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "name",       :limit => 100
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "category_news", :force => true do |t|
@@ -62,6 +62,11 @@ ActiveRecord::Schema.define(:version => 20131126183138) do
   end
 
   add_index "category_news", ["news_id", "categories_id"], :name => "index_category_news_on_news_id_and_categories_id"
+
+  create_table "category_products", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "locations", :force => true do |t|
     t.integer  "products_id"

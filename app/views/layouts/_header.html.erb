@@ -1,14 +1,14 @@
 <header class="navbar navbar-fixed-top navbar-inverse" >
   <div class="navbar-inner">
   <div class="container">
-    <div class="navbar">
-          <div class="span1" style="margin-left:0px;">
+    <div class="navbar row">
+          <div class="col-md-1" style="margin-left:0px;">
              <%= link_to image_tag("rails.png", :alt => "home image", :title => "Click here to return to Home", :style =>"padding:100 px; position:relative;top:3px;" ), "/" %>
           </div>
-          <div class="span10">
+          <div class="col-md-11">
               <div class="row">
                   <nav>
-                    <ul class="nav pull-left">
+                    <ul class="navbar-form pull-left list-inline">
                       <li><%= link_to "Home",    '/' %></li>
                       <li><%= link_to "Contact",    '/contact' %></li>
                       <% if signed_in? %>
@@ -43,7 +43,7 @@
               </div>
               <div class="row" style="border-top:thin solid grey;">
                 <nav>
-                  <ul class="nav pull-left">
+                  <ul class="navbar-form pull-left list-inline">
                     <li><%= link_to "android",    '#' %></li>
                     <li><%= link_to "android",    '#' %></li>
                     <li><%= link_to "android",    '#' %></li>

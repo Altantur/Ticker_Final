@@ -1,4 +1,5 @@
-@import 'bootstrap';
+@import "bootstrap.min";
+@import "bootstrap-theme.min";
 
 /* universal */
 
@@ -9,7 +10,7 @@ html {
 }
 
 body {
-  padding-top: 100px;
+  padding-top: 120px;
 }
 
 section {
@@ -38,14 +39,12 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
 }
 
 h2 {
+  margin-top: 0;
   font-size: 1.7em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
   font-weight: normal;
   color: #999;
 }
@@ -55,14 +54,37 @@ p {
   line-height: 1.7em;
 }
 
+.mypanel-category {
+  border-color: transparent;
+}
+
+.mypanel-category > .panel-heading {
+  color: #ffffff;
+  background-color: #222222;
+  border-color: #222222;
+}
+
+.mypanel-category > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #428bca;
+}
+
+.mypanel-category > .panel-heading > .dropdown .caret {
+  border-color: #ffffff transparent;
+}
+
+.mypanel-category > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #222222;
+}
+
 
 /* footer */
 
 footer {
   margin-top: 45px;
-  padding-top: 5px;
+  padding-top: 15px;
   border-top: 1px solid #eaeaea;
   color: #999;
+  clear: both;  
 }
 
 footer a {
