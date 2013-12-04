@@ -1,5 +1,9 @@
 Ticker::Application.routes.draw do
 
+  get "news/index"
+
+  get "news/show"
+
   #categories
   get "categories", :to=> "categories#index"
   get "categories/:id", :to=> "categories#show"
