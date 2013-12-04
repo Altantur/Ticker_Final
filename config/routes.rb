@@ -14,10 +14,8 @@ Ticker::Application.routes.draw do
   get "sessions/destroy"
   
   #user, main
-  get "users/new"
-  get "main/home"
-  get "main/contact"
   get '/contact', :to => 'main#contact'
+  get '/about', :to => 'main#about'
 
   #login logout
   get "admins/login"
