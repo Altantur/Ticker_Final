@@ -1,9 +1,10 @@
 Ticker::Application.routes.draw do
 
+  root to: 'main#home'
+
+  #admin
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
-  root to: 'main#home'
 
   #sessions
   get "sessions/new"
@@ -13,8 +14,7 @@ Ticker::Application.routes.draw do
   
   #user, main
   get "users/new"
-  get "main/home"
-  get "main/contact"
+  get '/about', :to=>'main#about'
   get '/contact', :to => 'main#contact'
 
   #login logout
@@ -25,9 +25,9 @@ Ticker::Application.routes.draw do
   
   # See how all your routes lay out with "rake routes"
 
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  #categories
+  get '/categories', :to=> 'categories#index'
+  get '/categories/:id', :to=> 'categories#show'
 
   #admin controller
 end
