@@ -3,7 +3,7 @@
 <p style="border-top: 1px solid #eaeaea;">
 Categories: 
 <% @newscategories.each do |catindex| %>
-	<%= Category.find(catindex).name %>
+	<%= link_to Category.find(catindex).name , '/categories/'+ Category.find(catindex).id.to_s%>
 <%end%>
 <br />
 Comments here
