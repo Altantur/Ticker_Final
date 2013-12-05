@@ -1,2 +1,10 @@
-<h2><%= @news.title %></h2>
-<p><%= @news.body %></p>
+<h2><%= link_to @news.title , "/news/" + @news.id.to_s %></h2>
+<p style="border-top: 1px solid #eaeaea;"><%= @news.body %></p>
+<p style="border-top: 1px solid #eaeaea;">
+Categories: 
+<% @newscategories.each do |catindex| %>
+	<%= Category.find(catindex).name %>
+<%end%>
+<br />
+Comments here
+</p>

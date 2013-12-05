@@ -1,6 +1,7 @@
 Ticker::Application.routes.draw do
 
-  root to: 'main#home'
+  #root to: 'main#home'
+  root to: 'news#index'
 
   #admin
   devise_for :admin_users, ActiveAdmin::Devise.config

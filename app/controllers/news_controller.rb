@@ -4,6 +4,7 @@ class NewsController < ApplicationController
   end
 
   def show
+  	@newscategories = CategoryNews.where(news_id:params[:id]).pluck(:category_id)
   	@news = News.find(params[:id])
   end
 end
