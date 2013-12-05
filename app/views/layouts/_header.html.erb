@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse" >
   <div class="navbar-inner">
   <div class="container">
-    <div class="navbar row">
+    <div class="navbar row" style="margin-bottom:0px">
           <div class="col-md-1" style="margin-left:0px;">
              <%= link_to image_tag("rails.png", :alt => "home image", :title => "Click here to return to Home", :style =>"padding:100 px; position:relative;top:3px;" ), "/" %>
           </div>
@@ -9,8 +9,8 @@
               <div class="row">
                   <nav>
                     <ul class="navbar-form pull-left list-inline">
-                      <li><%= link_to "Home",    '/' %></li>
-                      <li><%= link_to "Contact",    '/contact' %></li>
+                      <li><%= link_to "Нүүр",    '/' %></li>
+                      <li><%= link_to "Холбогд",    '/contact' %></li>
                       <% if signed_in? %>
                       <li class="dropdown">
                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
@@ -18,22 +18,20 @@
                        </a>
                       <ul class='dropdown-menu'>
                         <li id="fat-menu" class="dropdown">
-                            <li><%= link_to "Profile", "#" %></li>
-                            <li><%= link_to "Settings", '#' %></li>
-                            <li class="divider"></li>
+                            <!-- <li class="divider"></li> -->
                             <li>
-                              <%= link_to "Sign out", "/logout" %>
+                              <%= link_to "Гарах", "/logout" %>
                             </li>
                         </li>
                       </ul>
                       <% else %>
                       <li class="dropdown">
                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                        Login <span class='caret'></span>
+                        Нэвтрэх <span class='caret'></span>
                        </a>
                       <ul class='dropdown-menu'>
                         <li id="fat-menu" class="dropdown">
-                            <li><%= link_to "Connect With Facebook", "/auth/facebook" %></li>
+                            <li><%= link_to "Facebook ашиглан нэвтрэх", "/auth/facebook" %></li>
                         </li>
                       </ul>
                       <% end %>

@@ -29,5 +29,8 @@ Ticker::Application.routes.draw do
   get '/categories', :to=> 'categories#index'
   get '/categories/:id', :to=> 'categories#show'
 
-  #admin controller
+  #news
+  get '/news', :to=> 'news#index'
+  get '/news/:id', :to=> 'news#show'
+
 end

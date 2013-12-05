@@ -1,2 +1,13 @@
-<h1>News#index</h1>
-<p>Find me in app/views/news/index.html.erb</p>
+<%if @newnews != 0
+	@newnews.each do |newsitem| %>
+
+	<div class="panel mypanel-category">
+    	<div class="panel-heading"><%=newsitem.title %></div>
+    	<div class="panel-body"><%=newsitem.body %></div>
+    	<div class="panel-footer">Date: <%=newsitem.created_at %> | Comments</div>
+  </div>
+
+<%end else%>
+	"Nothing found"
+
+<%end%>
