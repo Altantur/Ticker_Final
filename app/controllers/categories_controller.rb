@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @categories = Category.all
     @categoryname = Category.find_by_name(params[:name]).name
     idd = Category.find_by_name(params[:name])
     posttemp = News.where(:id => CategoryNews.where(category_id:idd).pluck(:news_id))
