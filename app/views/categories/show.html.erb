@@ -1,16 +1,20 @@
 <!-- Title -->
-	<h2>Product News | <%= @categoryname %> </h2>
+<% title @temp %>
 
-<%if @pages != 0
+
+<%unless @pages == 0
 	@pages.each do |page| %>
-
 	<div class="panel mypanel-category">
     	<div class="panel-heading"><%=page.title %></div>
     	<div class="panel-body"><%=page.body %></div>
     	<div class="panel-footer">Date: <%=page.created_at %> | Comments</div>
   </div>
-
+  	<div class="col-md-3">
+		<h1>RestFul</h1>
+	</div>
 <%end else%>
 	"Nothing found"
 
 <%end%>
+
+	

@@ -5,12 +5,17 @@ class CategoriesController < ApplicationController
 
   def show
   	#Category.find(params[:id]).name
+    
+    @categories = Category.all
   	@pages = Array.new
-  	pageslist = CategoryNews.where(category_id:params[:id]).pluck(:news_id)
+    idd = Category.find_by_name(params[:name])
+    puts idd
+  	pageslist = CategoryNews.where(category_id:idd).pluck(:news_id)
     @categoryname = String.new
 
-  	if pageslist.length!=0 then
-      @categoryname = Category.find(params[:id]).name
+  	unless pageslist.length == 0 then
+      
+      @categoryname = Category.find_by_name(params[:name]).name
   		pageslist.each do |x|
 	  		@pages.push(News.find(x))
   		end
@@ -20,7 +25,6 @@ class CategoriesController < ApplicationController
       @categoryname = ""
   		@pages = 0
   	end
-
-
+    @temp = params[:name]
   end
 end
