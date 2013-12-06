@@ -17,6 +17,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'activeadmin'
 gem 'impressionist'
 gem "formtastic", "~> 2.2.1"
+gem 'chosen-rails'
 
 # Omniauth login 
 gem 'omniauth-facebook'
