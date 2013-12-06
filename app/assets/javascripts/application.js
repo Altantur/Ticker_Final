@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+//= require jquery.socialist
+//= require jquery-star-rating
 //= require_tree .
-require jquery-star-rating

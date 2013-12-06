@@ -18,6 +18,19 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#social').socialist({
+        networks: [
+            {name:'facebook',id:'spiegelonline'}
+           ],
+        isotope:false,
+        random:false,
+        fields:['source','heading','text']
+    });
+});
+</script>
+
 <%= render 'layouts/header'%>
 
 <div class="container" style="clear:both; margin-bottom:10px">
