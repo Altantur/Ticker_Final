@@ -3,7 +3,7 @@
 <p style="border-top: 1px solid #eaeaea;">
 Категори: 
 <% @newscategories.each do |catindex| %>
-	<%= link_to Category.find(catindex).name , '/categories/'+ Category.find(catindex).id.to_s%>
+	<%= link_to Category.find(catindex).name , '/categories/'+ Category.find(catindex).name%>
 <%end%>
 | Үзсэн тоо: <%= "#{@news.impressionist_count}" %>
 <br />

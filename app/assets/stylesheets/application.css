@@ -14,7 +14,7 @@
  *= require social-buttons-3
  *= require_tree .
  */
-	 
+ require jquery-star-rating
  @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../assets/fonts/glyphicons-halflings-regular.eot');

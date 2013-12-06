@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ticker</title>
+  <title>Ticker | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "custom", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -29,6 +29,9 @@
 		<%= yield %>
 	</div>
 	<div class="col-md-3">
+		<% if params[:controller] == "categories"  %>
+		<%= render 'layouts/cate'%>
+		<% end %>
 		<%= render 'layouts/social'%>
 		<%= render 'layouts/rss'%>
 	</div>
