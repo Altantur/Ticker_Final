@@ -8,12 +8,8 @@ class NewsController < ApplicationController
   end
 
   def show
-  	@newscategories = CategoryNews.where(news_id:params[:id]).pluck(:category_id)
-  	@news = News.find(params[:id])
-  	if @news.counter==nil
-  		@news.counter=1
-  	else
-  		@news.counter+=1
-  	end
+    @categories = Category.all
+    @newscategories = CategoryNews.where(news_id:params[:id]).pluck(:category_id)
+    @news = News.find(params[:id])
   end
 end
