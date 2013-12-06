@@ -1,0 +1,36 @@
+<h2>Бидэнтэй холбогдоорой</h2>
+
+<% if signed_in? then %>
+<h4>Мэйл илгээх</h4>
+<%= form_for @message, :url => contact_path do |form| %>
+  <fieldset class="fields">
+    <div class="field">
+      <%= form.label :name, "Нэр <span class='help-required'>*</span>".html_safe %>
+      <%= form.text_field :name, class: "form-control required"  %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :email, "Мэйл хаяг <span class='help-required'>*</span>".html_safe %>
+      <%= form.text_field :email, {value: @user.email, class: "form-control required"} %>
+    </div>
+    <div class="field">
+      <%= form.label :subject, "Гарчиг <span class='help-required'>*</span>".html_safe %>
+      <%= form.text_field :subject, class: "form-control required" %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :body, "Агуулга <span class='help-required'>*</span>".html_safe %>
+      <%= form.text_area :body, {rows:8, class: "form-control required"} %>
+    </div>
+  </fieldset>
+  <br />
+  <fieldset class="actions">
+    <%= form.submit "Send", class: "btn btn-primary" %>
+    <%= button_tag 'Reset', :type => 'reset', class: "btn btn-primary" %>
+  </fieldset>
+<% end else %>
+Та нэвтэрч орсоны дараа бидэн рүү мэйл илгээх боломжтой
+<% end %>
+
+<h3>Манай байрлал<h3>
+<iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x5d9692422e995f0d%3A0x5a0c476857758c27!2snational+unibversity+of+mongolia!5e0!3m2!1sen!2s!4v1386137036232" width="600" height="250" frameborder="0" style="border:0"></iframe>

@@ -16,7 +16,7 @@ Ticker::Application.routes.draw do
   #user, main
   get "users/new"
   get '/about', :to=>'main#about'
-  get '/contact', :to => 'main#contact'
+  get '/contact', :to => 'contact#new'
 
   #login logout
   get   '/login', :to => 'sessions#new', :as => :login
@@ -33,5 +33,9 @@ Ticker::Application.routes.draw do
   #news
   get '/news', :to=> 'news#index'
   get '/news/:id', :to=> 'news#show'
+
+  #contact
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
 end

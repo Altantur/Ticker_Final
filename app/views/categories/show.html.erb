@@ -1,16 +1,16 @@
 <!-- Title -->
 	<h2>Product News | <%= @categoryname %> </h2>
 
-<%if @pages != 0
-	@pages.each do |page| %>
+<% @posts.each do |post| %>
 
 	<div class="panel mypanel-category">
-    	<div class="panel-heading"><%=page.title %></div>
-    	<div class="panel-body"><%=page.body %></div>
-    	<div class="panel-footer">Date: <%=page.created_at %> | Comments</div>
+    	<div class="panel-heading"><%=post.title %></div>
+    	<div class="panel-body"><%=post.body %></div>
+    	<div class="panel-footer">Date: <%=post.created_at %> | Comments</div>
   </div>
 
-<%end else%>
-	"Nothing found"
-
 <%end%>
+
+<div style="text-align:center">
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Өмнөх", next_label: "Дараах" %>
+</div>

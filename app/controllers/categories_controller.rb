@@ -4,23 +4,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-  	#Category.find(params[:id]).name
-  	@pages = Array.new
-  	pageslist = CategoryNews.where(category_id:params[:id]).pluck(:news_id)
-    @categoryname = String.new
-
-  	if pageslist.length!=0 then
-      @categoryname = Category.find(params[:id]).name
-  		pageslist.each do |x|
-	  		@pages.push(News.find(x))
-  		end
-      @pages = @pages.sort_by &:created_at
-      @pages = @pages.reverse
-  	else
-      @categoryname = ""
-  		@pages = 0
-  	end
-
-
+    @categoryname = Category.find(params[:id]).name
+    posttemp = News.where(:id => CategoryNews.where(category_id:params[:id]).pluck(:news_id))
+    @posts = posttemp.paginate(page: params[:page], order: 'created_at DESC', per_page: 2)
   end
 end

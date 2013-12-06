@@ -1,10 +1,11 @@
 <h2><%= link_to @news.title , "/news/" + @news.id.to_s %></h2>
 <p style="border-top: 1px solid #eaeaea;"><%= @news.body %></p>
 <p style="border-top: 1px solid #eaeaea;">
-Categories: 
+Категори: 
 <% @newscategories.each do |catindex| %>
 	<%= link_to Category.find(catindex).name , '/categories/'+ Category.find(catindex).id.to_s%>
 <%end%>
+| Үзсэн тоо: <%= "#{@news.impressionist_count}" %>
 <br />
-Comments here
+<div class="fb-comments" data-href="<%=request.url%>" data-numposts="5" data-colorscheme="light"></div>
 </p>

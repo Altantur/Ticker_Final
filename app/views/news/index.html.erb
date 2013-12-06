@@ -1,13 +1,11 @@
-<%if @newnews != 0
-	@newnews.each do |newsitem| %>
-
+<% @posts.each do |newsitem| %>
 	<div class="panel mypanel-category">
     	<div class="panel-heading"><%= link_to newsitem.title , "/news/" + newsitem.id.to_s %></div>
     	<div class="panel-body"><%=newsitem.body %></div>
-    	<div class="panel-footer">Date: <%=newsitem.created_at %> | Comments</div>
+    	<div class="panel-footer">Бичсэн: <%=newsitem.created_at.strftime("%Y/%m/%d-ний %H:%M") %></div>
   </div>
+<% end %>
 
-<%end else%>
-	"Nothing found"
-
-<%end%>
+<div style="text-align:center">
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Өмнөх", next_label: "Дараах" %>
+</div>

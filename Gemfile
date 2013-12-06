@@ -18,6 +18,7 @@ end
 gem 'jquery-rails'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'activeadmin'
+gem 'impressionist'
 
 gem "formtastic", "~> 2.2.1"
 
@@ -25,5 +26,9 @@ gem "formtastic", "~> 2.2.1"
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
+# Pagination
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+
 # Pretty URL
-gem 'friendly_id'
+# gem 'friendly_id'
