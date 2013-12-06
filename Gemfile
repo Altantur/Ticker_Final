@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'mysql2'
 
 # Gems used only for assets and not required
@@ -19,7 +16,6 @@ gem 'jquery-rails'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'activeadmin'
 gem 'impressionist'
-
 gem "formtastic", "~> 2.2.1"
 
 # Omniauth login 
@@ -29,6 +25,9 @@ gem 'omniauth-twitter'
 # Pagination
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+
+#Stars
+gem 'jquery-star-rating-rails'
 
 # Pretty URL
 # gem 'friendly_id'
