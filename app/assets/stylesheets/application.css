@@ -9,18 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap.min
- *= require bootstrap-theme.min
+ *= require bootstrap
+ *= require bootstrap-theme
  *= require social-buttons-3
  *= require jquery.socialist
  *= require jquery-star-rating
  *= require_tree .
  */
- @font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('../assets/fonts/glyphicons-halflings-regular.eot');
-  src: url('../assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-       url('../assets/fonts/glyphicons-halflings-regular.woff') format('woff'), 
-       url('../assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'), 
-       url('../assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}

@@ -1,0 +1,15 @@
+<h2>Хайлтын үр дүн</h2>
+
+<% @posts.each do |post| %>
+
+	<div class="panel mypanel-category">
+    	<div class="panel-heading"><%= link_to post.title , "/news/" + post.id.to_s %></div>
+    	<div class="panel-body"><%=post.body %></div>
+    	<div class="panel-footer">Date: <%=post.created_at %> | Comments</div>
+  </div>
+
+<%end%>
+
+<div style="text-align:center">
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Өмнөх", next_label: "Дараах" %>
+</div>

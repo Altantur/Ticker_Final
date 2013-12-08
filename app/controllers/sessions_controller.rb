@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 	end
 
 		def failure
-			flash[:failure]= "Уучлаарай одоогоор дэмжигдээгүй байнa"
+		flash[:failure]= "Уучлаарай одоогоор дэмжигдээгүй байнa"
 		redirect_to "/"
 		end
 

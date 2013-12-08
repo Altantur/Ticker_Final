@@ -1,5 +1,8 @@
 Ticker::Application.routes.draw do
 
+  #search
+  get "/search", :to => 'search#index'
+
   get "product/index"
 
   get "product/show"

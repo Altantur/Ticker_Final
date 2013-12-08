@@ -1,11 +1,11 @@
-<header class="navbar navbar-fixed-top navbar-inverse" >
+<header class="navbar navbar-fixed-top navbar-default" >
   <div class="navbar-inner">
   <div class="container">
     <div class="navbar row" style="margin-bottom:0px">
           <div class="col-md-1" style="margin-left:0px;">
-             <%= link_to image_tag("rails.png", :alt => "home image", :title => "Click here to return to Home", :style =>"padding:100 px; position:relative;top:3px;" ), "/" %>
+             <%= link_to image_tag("tngri.png", :alt => "home image", :title => "Click here to return to Home", :style =>"position:relative;top:3px;width:100px" ), "/" %>
           </div>
-          <div class="col-md-11">
+          <div class="col-md-11" style="padding-left:50px">
               <div class="row">
                   <nav>
                     <ul class="navbar-form pull-left list-inline">
@@ -35,6 +35,16 @@
                         </li>
                       </ul>
                       <% end %>
+                      </li>
+                       <li>
+                        <form class="navbar-form" action="/search" role="search" style="margin:0; padding:0">
+                          <div class="input-group" style="width:150px; text-align:right">
+                              <input type="text" class="form-control" placeholder="Хайлт" name="q" id="search">
+                              <div class="input-group-btn">
+                                  <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                              </div>
+                          </div>
+                        </form>
                       </li>
                     </ul>
                   </nav>

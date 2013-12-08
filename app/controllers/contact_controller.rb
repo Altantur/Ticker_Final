@@ -1,7 +1,9 @@
 class ContactController < ApplicationController
 	def new
 		@message = Message.new
-		#if signed_in? then @user = User.find(session[:user_id])	end
+		if signed_in?
+			@user = User.find(session[:user_id])
+		end
 	end
 
 	def create

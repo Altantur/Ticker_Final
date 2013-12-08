@@ -1,17 +1,16 @@
-
-@import "bootstrap.min";
-@import "bootstrap-theme.min";
+@import "bootstrap";
+@import "bootstrap-theme";
 
 /* universal */
 
 html {
   overflow-y: scroll;
-    margin:0px;
-    padding:0px;
+  margin:0px;
+  padding:0px;
 }
 
 body {
-  padding-top: 100px;
+  padding-top: 120px;
 }
 
 section {
