@@ -1,14 +1,10 @@
 class ContactController < ApplicationController
 	def new
 		@message = Message.new
-		if signed_in?
-			@user = User.find(session[:user_id])
-		end
 	end
 
 	def create
 		@message = Message.new(params[:message])
-		@user = User.find(session[:user_id])
 
 		if @message.valid?
       		UserMailer.contact_mail(@message,@user).deliver
