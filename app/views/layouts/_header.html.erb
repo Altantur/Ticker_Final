@@ -52,7 +52,7 @@
               <div class="row" style="border-top:thin solid grey;">
                 <nav>
                   <ul class="navbar-form pull-left list-inline">
-                    <li><%= link_to "Топ Мэдээллүүд:", '#' %></li>
+                    <li><%= link_to "Топ Мэдээллүүд:", 'top' %></li>
                     <% Category.all.each do |category| %>
                     <li><%= link_to category.name,    '/categories/'+category.name %></li>
                     <% end %>
