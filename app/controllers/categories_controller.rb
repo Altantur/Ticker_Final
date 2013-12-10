@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
     @temp = idd
 
     @loc = Location.where("product_id = #{@temp.id}")
+    
 
   end
 end
