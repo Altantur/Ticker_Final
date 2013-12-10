@@ -1,5 +1,9 @@
 Ticker::Application.routes.draw do
 
+  get "top/index"
+
+  get "top/show"
+
   #search
   get "/search", :to => 'search#index'
 
@@ -38,6 +42,7 @@ Ticker::Application.routes.draw do
   #get '/categories/:id', :to=> 'categories#show'
   match '/categories/:name', :to => 'categories#show', :as => :name
   resources :categories
+  resources :top
   #news
   get '/news', :to=> 'news#index'
   get '/news/:id', :to=> 'news#show'
