@@ -1,8 +1,12 @@
 <div class="container">
     <div class="row">
-    	<img src="http://icons.iconarchive.com/icons/musett/iphone-4/256/iPhone-Black-Apple-icon.png" alt="Temporary"/>
-      	<p>Бүтээгдэхүүний нэр: <%= @temp.name %></p>
-      	<p>Үнэлгээ: </p>
+
+      <% @pro.each do |product| %>
+        <p>Бүтээгдэхүүний нэр: <%= product.name %></p>
+        <p>Үнэлгээ: <%= product.value %></p>
+      <% end %>
+      	
+      	
 	</div>
 	<div class="row">
 	<p>Таны үнэлгээ: </p>
