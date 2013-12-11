@@ -1,3 +1,4 @@
+<% title @news.title %>
 <h2><%= link_to @news.title , "/news/" + @news.id.to_s %></h2>
 <%= link_to image_tag("news.jpg", :alt => @news.title, :title => @news.title, :style =>"width:100%" ), "/news/" + @news.id.to_s %>
 <p style="border-top: 1px solid #eaeaea;"><%= @news.body %></p>

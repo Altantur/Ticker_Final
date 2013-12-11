@@ -1,3 +1,5 @@
+
+<% title "Нүүр" %>
 <% @posts.each do |newsitem| %>
 	<div class="panel mypanel-category">
     	<div class="panel-heading"><%= link_to newsitem.title , "/news/" + newsitem.id.to_s %></div>
