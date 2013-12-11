@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
     posttemp = News.where(:id => CategoryNews.where(category_id:idd).pluck(:news_id))
     @posts = posttemp.paginate(page: params[:page], order: 'created_at DESC', per_page: 2)
 
-    @temp = Product.find(ProductCategory.find(idd.id))
+    @temp = idd
 
     @loc = Location.where("product_id = #{@temp.id}") 
     
