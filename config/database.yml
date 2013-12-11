@@ -14,8 +14,8 @@ development:
   reconnect: false
   database: icker_development
   pool: 5
-  username: root
-  password: antigee 
+  username: rails
+  password: UTRGmoEFgg
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -27,8 +27,8 @@ test:
   reconnect: false
   database: icker_test
   pool: 5
-  username: root
-  password: antigee 
+  username: rails
+  password: UTRGmoEFgg
   socket: /var/run/mysqld/mysqld.sock
 
 production:
