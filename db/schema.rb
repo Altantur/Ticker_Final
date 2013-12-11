@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205230744) do
+ActiveRecord::Schema.define(:version => 20131211081713) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -114,7 +114,6 @@ ActiveRecord::Schema.define(:version => 20131205230744) do
 
   create_table "locations", :force => true do |t|
     t.string   "address",    :limit => 250
-    t.float    "price"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.integer  "product_id"
@@ -145,6 +144,16 @@ ActiveRecord::Schema.define(:version => 20131205230744) do
   end
 
   add_index "product_categories", ["product_id", "category_id"], :name => "index_product_categories_on_product_id_and_category_id"
+
+  create_table "product_locations", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "location_id"
+    t.float    "price"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "product_locations", ["product_id", "location_id"], :name => "index_product_locations_on_product_id_and_location_id"
 
   create_table "products", :force => true do |t|
     t.string   "name",         :limit => 100

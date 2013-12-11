@@ -1,0 +1,55 @@
+ 
+<div id="tabs">
+  <ul>
+
+  <% ignored_tables = ["active_admin_comments", "admin_users", "authorazations", "impressions", "schema_migrations"] %>
+  
+
+  <% @data_tables.each do |table_name|%>
+   <% if !ignored_tables.include?(table_name)%>
+     <li>
+       <%= link_to table_name, '#tabs-' + table_name %>
+     </li>
+   <%end%>
+  <%end%>
+  </ul>
+
+<% @data_tables.each do |table_name|%>
+   <% if !ignored_tables.include?(table_name)%>
+  	<% id_name = "tabs-" + table_name %>
+  	<div id='<%=id_name %>' >
+      <% @result = ActiveRecord::Base.connection.execute("SELECT * FROM #{table_name}") %>
+      <% @column = ActiveRecord::Base.connection.execute("SHOW COLUMNS FROM #{table_name}") %>
+<table border="1" width = "1100px" >
+  <tr>
+      <% rem = [] %>
+      <% i = 0 %>
+      <% @column.each do |row| %>
+          <% if !(row[0].to_s.include?("_at") || row[0].to_s.include?("_path")) %>
+            <th><%= row[0] %></th>
+          <% else %>
+            <% rem << i %>
+          <% end %>
+          <%i = i + 1%>
+      <%end%>
+  </tr>
+      
+      <br/><br/><br/>
+      <% @result.each do |row| %>
+        <tr> 
+          <% i = 0 %>   
+          <% row.each do |cell|%>
+            <% if !rem.include?(i) %>
+              <td><%= cell %> </td>
+            <%end%>
+            <% i = i + 1 %>
+          <%end%>
+        </tr>
+      <%end%>
+
+</table>
+ 	</div>
+   <%end%>
+
+<%end%>
+</div>

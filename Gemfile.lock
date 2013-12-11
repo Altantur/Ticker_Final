@@ -48,6 +48,10 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    carrierwave (0.9.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
     chosen-rails (1.0.1)
       coffee-rails (>= 3.2)
       compass-rails (>= 1.0)
@@ -87,7 +91,7 @@ GEM
     hike (1.2.3)
     httpauth (0.2.0)
     httpclient (2.3.4.1)
-    i18n (0.6.5)
+    i18n (0.6.9)
     impressionist (1.4.13)
       httpclient (~> 2.2)
       nokogiri (>= 1.5.0)
@@ -207,6 +211,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   bcrypt-ruby
+  carrierwave
   chosen-rails
   coffee-rails (~> 3.2.1)
   formtastic (~> 2.2.1)

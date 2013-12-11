@@ -8,10 +8,10 @@ class ContactController < ApplicationController
 
 		if @message.valid?
       		UserMailer.contact_mail(@message,@user).deliver
-      		flash[:success]= "Мэйлийг амжилттай илгээлээ."
+      		flash[:success]= "Mail sent."
       		redirect_to(root_path)
     	else
-      		flash[:danger] = "Бүх талбарыг бөглөнө үү. Агуулгын хэсэг нь 100-гаас олон тэмдэгттэй байна."
+      		flash[:danger] = "Please fill out everything."
       		redirect_to "/contact"
     	end
 	end

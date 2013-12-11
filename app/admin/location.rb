@@ -1,10 +1,10 @@
 ActiveAdmin.register Location do
+	menu :parent => "Product"
   form do |f|
-    f.inputs "Product Details" do
+    f.inputs "location Details" do
       f.input :address
-      f.input :price
     end
-    
+
     f.actions
   end
 end

@@ -26,7 +26,7 @@ gem 'omniauth-twitter'
 # Pagination
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-
+gem 'carrierwave'
 #Stars
 gem 'jquery-star-rating-rails'
 

@@ -1,4 +1,5 @@
 ActiveAdmin.register News do
+	menu :parent => "News"
 	form do |f|
 		f.inputs "Add Categories" do
 			f.object.category_news.build
@@ -16,7 +17,9 @@ ActiveAdmin.register News do
 		end
 		f.inputs "Body"  do
 			f.input :body, :required => true
+			f.input :image_path, :as => :file
 		end
+		
 		f.actions
 	end
 end
