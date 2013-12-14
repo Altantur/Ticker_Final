@@ -20,6 +20,7 @@ class CategoriesController < ApplicationController
       array.each do |i| tt+=i.to_s + ','
       end
       tt =tt[0,tt.length-1]
+      unless tt == ""
     sql = "select * from products where id IN (#{tt})"
     @pro = Product.find_by_sql(sql)
     
