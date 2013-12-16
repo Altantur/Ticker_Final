@@ -20,16 +20,13 @@ class CategoriesController < ApplicationController
       array.each do |i| tt+=i.to_s + ','
       end
       tt =tt[0,tt.length-1]
-      unless tt == ""
+        if array.size == 0 
+        tt = '0'
+end
     sql = "select * from products where id IN (#{tt})"
     @pro = Product.find_by_sql(sql)
-    
-    #puts "FUCKFUCK"
-    #tm = ProductCategory.where(category_id:idd.id)
-    #@pro = Product.where(:id => tm)
-    #puts "FUCKFUCK"
 
-    @loc = Location.where("product_id = #{idd.id}") 
+    @poll = Poll.last
     
   end
 end

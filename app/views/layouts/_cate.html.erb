@@ -2,20 +2,16 @@
     <div class="row">
 
       <% @pro.each do |product| %>
+      <%= image_tag(product.image_path, :alt => product.name, :title => product.name, :style =>"width:200px" ) %>
         <p>Бүтээгдэхүүний нэр: <%= product.name %></p>
         <p>Үнэлгээ: <%= product.value %></p>
+        <% @loc = ProductLocation.where("product_id = #{product.id}") %>
+        <% if @loc 
+          @loc.each do |location| %>
+        <p><b><%= Location.find(location.location_id).address%></b> : <%= location.price.to_s+"₮" %></p>
+        <% end %>
+        <% end %>
       <% end %>
-      	
-      	
 	</div>
-	<div class="row">
-	<p>Таны үнэлгээ: </p>
-	</div>
-  <p>Боломжит газрууд болон үнэ:</p>
-  <% @loc.each do |location| %>
-<p>
-  <%= location.address + ":" + location.price.to_s + "₮" %>
-</p>
-  <% end %>
-  
+	
 </div>

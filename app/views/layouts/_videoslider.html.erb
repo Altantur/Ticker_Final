@@ -1,0 +1,24 @@
+<script tpye="text/javascript" charset="utf-8">
+	$(function(){
+	new Highcharts.Chart({
+		chart : {
+			renderTo: "orders_chart"
+		},
+		title:{
+			text :"Order by Day"	
+		},
+		xAxis: {
+			type: "datetime"
+		},
+		yAxis:{
+			title:{
+				text: "Dollars"
+			}
+		},
+		series: [{
+			pointInterval:
+			data: [1, 2, 4, 5, 8]
+		}]
+		});
+	});
+</script>

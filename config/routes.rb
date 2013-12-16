@@ -1,5 +1,9 @@
 Ticker::Application.routes.draw do
 
+  get "poll/index"
+
+  get "poll/show"
+
   get "top/index"
 
   get "top/show"

@@ -3,8 +3,9 @@
 <head>
   <title>Тнгри.ком | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "custom", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "highcharts" %>
   <%= csrf_meta_tags %>
+  
 </head>
 <body>
 
@@ -28,6 +29,7 @@
 		<%end%>
 		<%= yield %>
 	</div>
+	<%= render 'layouts/videoslider'%>
 	<div class="col-md-3">
 		<% if params[:controller] == "categories"  %>
 		<%= render 'layouts/cate'%>
@@ -35,7 +37,6 @@
 		<%= render 'layouts/social'%>
 		<%= render 'layouts/rss'%>
 	</div>
-
 </div>
 </div>
 
