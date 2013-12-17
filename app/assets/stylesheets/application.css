@@ -11,8 +11,7 @@
  *= require_self
  *= require bootstrap
  *= require bootstrap-theme
- *= require social-buttons-3
- *= require jquery.socialist
  *= require jquery-star-rating
- *= require_tree .
+ *= require social-likes
+ *= require_directory .
  */

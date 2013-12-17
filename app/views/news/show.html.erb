@@ -1,5 +1,10 @@
 <% title @news.title %>
 <h2><%= link_to @news.title , "/news/" + @news.id.to_s %></h2>
+<ul class="social-likes">
+	<li class="facebook" title="Share link on Facebook">Facebook</li>
+	<li class="twitter" title="Share link on Twitter">Twitter</li>
+	<li class="plusone" title="Share link on Google+">Google+</li>
+</ul>
 <%= link_to image_tag("news.jpg", :alt => @news.title, :title => @news.title, :style =>"width:100%" ), "/news/" + @news.id.to_s %>
 <p style="border-top: 1px solid #eaeaea;"><%= @news.body %></p>
 <p style="border-top: 1px solid #eaeaea;">

@@ -228,4 +228,13 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 
+
+config.clear_stylesheets!
+config.register_stylesheet 'adminmove/active_admin.css'
+
+config.clear_javascripts!
+config.register_javascript 'adminmove/active_admin.js'
+
+
+
 end
