@@ -1,3 +1,3 @@
 ActiveAdmin.register CategoryNews do
-	menu :parent => "News"
+	menu :parent => "Debug"
 end

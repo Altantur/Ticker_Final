@@ -3,6 +3,8 @@ class SearchController < ApplicationController
   	require 'will_paginate/array'
   	posts1 = News.where('body LIKE ? or title LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%")
 
+    @searchterm = params[:q]
+    
   	if Category.where('name LIKE ?',"%#{params[:q]}%").length != 0
     	idd = Category.where('name LIKE ?',"%#{params[:q]}%")
     	posttemp = News.where(:id => CategoryNews.where(category_id:idd).pluck(:news_id))

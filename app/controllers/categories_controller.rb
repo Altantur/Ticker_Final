@@ -25,7 +25,6 @@ class CategoriesController < ApplicationController
 end
     sql = "select * from products where id IN (#{tt})"
     @pro = Product.find_by_sql(sql)
-
     @poll = Poll.last
     
   end

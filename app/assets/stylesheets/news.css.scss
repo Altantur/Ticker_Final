@@ -17,7 +17,7 @@
 .news-show .news-date{
 	margin-bottom: 10px;
 	float:left;
-	font-size:14px;
+	font-size: 1.3em;
 	color: #333333;
 }
 
@@ -32,6 +32,11 @@
 	padding-top:10px;
 	font-size: 1.1em;
 	border-top: 1px solid #eaeaea;
+}
+
+.news-show .news-commentnum{
+	float:right;
+	font-size: 1.3em;
 }
 
 .news-show .news-categories{

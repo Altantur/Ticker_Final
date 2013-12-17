@@ -1,3 +1,3 @@
 ActiveAdmin.register Category do
-menu :parent => "Administration"
+menu :parent => "Lists"
 end

@@ -4,6 +4,7 @@ class News < ActiveRecord::Base
   	attr_accessible :category_news_attributes
   	validates :title, presence: true
   	validates :body, presence: true
+  	validates :image_path, presence: true
   	has_many :category_news
   	validates_associated :category_news
   	accepts_nested_attributes_for :category_news
