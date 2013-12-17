@@ -8,7 +8,7 @@
     	<%= link_to image_tag("news.jpg", :alt => post.title, :title => post.title, :style =>"width:100%" ), "/news/" + post.id.to_s %>
 
     	<div class="panel-body"><%=post.body %></div>
-    	<div class="panel-footer">Date: <%=post.created_at %> | Comments</div>
+    	<div class="panel-footer">Огноо: <%=post.created_at %> | Коментийн тоо: <fb:comments-count href="<%= "http://www.tngri.com/" + "/news/" + post.id.to_s %> "</fb:comments-count></div>
   </div>
 
 <%end%>

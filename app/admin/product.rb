@@ -14,11 +14,23 @@ ActiveAdmin.register Product do
 			app_f.input :price
 			end
 		end
+
+		f.inputs "Add Categories" do
+			f.object.product_categories.build
+			f.fields_for :product_categories do |m|
+		    	m.inputs do
+		    		m.input :category_id, :required => true, :as => :select, :collection => Category.all, :wrapper_html => { :class => 'border:none' }
+				end
+			end
+			f.has_many :product_categories, :heading => false, :new_record => true do |app_f|
+  				app_f.input :category_id, :required => true, :as => :select, :collection => Category.all
+			end
+		end
+
 		
 		f.inputs "Add product"  do
 			f.input :name
 			f.input :image_path, :as => :file
-			f.input :value
 		end		
 		f.actions
 	end

@@ -1,18 +1,26 @@
 <% title @news.title %>
+<div class="news-show">
 <h2><%= link_to @news.title , "/news/" + @news.id.to_s %></h2>
+<span class="news-date">
+	 <%=@news.created_at.strftime("%Y оны %m сарын %d") %>
+</span>
 <ul class="social-likes">
-	<li class="facebook" title="Share link on Facebook">Facebook</li>
-	<li class="twitter" title="Share link on Twitter">Twitter</li>
-	<li class="plusone" title="Share link on Google+">Google+</li>
+	<li class="facebook" title="Share link on Facebook">Лаик</li>
+	<li class="twitter" title="Share link on Twitter">Жиргэ</li>
+	<li class="plusone" title="Share link on Google+">Гүүгл+</li>
 </ul>
-<%= link_to image_tag("news.jpg", :alt => @news.title, :title => @news.title, :style =>"width:100%" ), "/news/" + @news.id.to_s %>
-<p style="border-top: 1px solid #eaeaea;"><%= @news.body %></p>
-<p style="border-top: 1px solid #eaeaea;">
-Категори: 
-<% @newscategories.each do |catindex| %>
+<%= link_to image_tag(@news.image_path, :alt => @news.title, :title => @news.title, :style =>"width:100%" ), "/news/" + @news.id.to_s %>
+<div class="news-post"><%= raw(@news.body) %></div>
+<div class="news-footer">
+<div class="news-categories">
+	Категори: <% @newscategories.each do |catindex| %>
 	<%= link_to Category.find(catindex).name , '/categories/'+ Category.find(catindex).name%>
 <%end%>
-| Үзсэн тоо: <%= "#{@news.impressionist_count}" %>
+</div>
+<div class="news-impressions">
+Нийт үзсэн тоо: <%= "#{@news.impressionist_count}" %>
+</div>
+</div>
 <br />
-<div class="fb-comments" data-href="<%=request.url%>" data-numposts="5" data-colorscheme="light"></div>
-</p>
+<div class="fb-comments" data-href="<%=request.url%>" data-numposts="10" data-colorscheme="light" width="800px"></div>
+</div>

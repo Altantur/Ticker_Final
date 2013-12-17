@@ -1,11 +1,10 @@
-
 <% title "Нүүр" %>
 <% @posts.each do |newsitem| %>
 	<div class="panel mypanel-category">
     	<div class="panel-heading"><%= link_to newsitem.title , "/news/" + newsitem.id.to_s %></div>
-    	<%= link_to image_tag("news.jpg", :alt => newsitem.title, :title => newsitem.title, :style =>"width:100%" ), "/news/" + newsitem.id.to_s %>
+    	<%= link_to image_tag(newsitem.image_path, :alt => newsitem.title, :title => newsitem.title, :style =>"width:100%" ), "/news/" + newsitem.id.to_s %>
     	<div class="panel-body"><%=newsitem.body %></div>
-    	<div class="panel-footer">Бичсэн: <%=newsitem.created_at.strftime("%Y/%m/%d-ний %H:%M") %></div>
+    	<div class="panel-footer">Бичсэн: <%=newsitem.created_at.strftime("%Y оны %m сарын %d") %></div>
   </div>
 <% end %>
 
