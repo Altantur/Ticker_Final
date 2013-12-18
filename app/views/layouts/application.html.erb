@@ -30,10 +30,13 @@
 		<%end%>
 		<%= yield %>
 	</div>
-	
+	<% @poll = Poll.last %>
+	<% puts @poll %>
 	<div class="col-md-3">
 
-		<% if params[:controller] == "categories"  %>
+		<% if params[:controller] == "categories" || params[:controller] == "search" %>
+		<%= render 'layouts/cate'%>
+		<% elsif params[:controller] == "categories" %>
 		<%= render 'layouts/cate'%>
 		<%= render 'layouts/videoslider'%>
 		<% end %>

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-
+      <% if @pro %>
       <% @pro.each do |product| %>
       <%= image_tag(product.image_path, :alt => product.name, :title => product.name, :style =>"width:200px" ) %>
         <p>Бүтээгдэхүүний нэр: <%= product.name %></p>
@@ -12,11 +12,6 @@
         <% end %>
         <% end %>
       <% end %>
+      <% end %>
 	</div>
-	
-
-
-
-
-
 </div>
