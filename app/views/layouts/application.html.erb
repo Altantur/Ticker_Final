@@ -6,7 +6,7 @@
   <%= stylesheet_link_tag    "custom" %>
   <%= javascript_include_tag "application", "highcharts" %>
   <%= csrf_meta_tags %>
-  
+  <script src="http://code.highcharts.com/highcharts.js"></script>
 </head>
 <body>
 
@@ -30,13 +30,15 @@
 		<%end%>
 		<%= yield %>
 	</div>
-	<%= render 'layouts/videoslider'%>
+	
 	<div class="col-md-3">
+
 		<% if params[:controller] == "categories"  %>
 		<%= render 'layouts/cate'%>
 		<% end %>
 		<%= render 'layouts/social'%>
 		<%= render 'layouts/rss'%>
+		<%= render 'layouts/videoslider'%>
 	</div>
 </div>
 </div>
