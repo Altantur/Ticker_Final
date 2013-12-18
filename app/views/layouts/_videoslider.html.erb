@@ -1,0 +1,38 @@
+  <script>
+$(function () { 
+    $('#container').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Газрын харьцуулалт'
+        },
+        xAxis: {
+            categories: <%= raw(@chararray) %>
+        },
+        yAxis: {
+            title: {
+                text: 'Үнэ'
+            }
+        },
+        series: [
+        //{ name: 'Jane', data: [1, 0]}, 
+        <% @locat.each do |tt| %>
+             
+             <% data =[] %>
+             <%  @temp.each do |t| %>
+                    <% if t.address == tt.address %>
+                        <% data << t.price %>
+                    <% end %>
+             <% end %>
+
+            {name: '<%= tt.address %>', data: <%= raw(data) %>},             
+        
+        <% end %>
+        
+        //{ name: 'John', data: [5, 2]}
+        ]
+    });
+});
+</script>
+<div id="container" style="width: 200px; height: 300px"></div>

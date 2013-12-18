@@ -1,3 +1,54 @@
 // Place all the styles related to the News controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* news-show */
+
+.news-show h2 a {
+	font-size: 1.6em;
+	color: #333333;
+}
+
+.news-show .social-likes{
+	margin-bottom: 10px;
+	float: right;
+}
+
+.news-show .news-date{
+	margin-bottom: 10px;
+	float:left;
+	font-size: 1.3em;
+	color: #333333;
+}
+
+.news-show .news-post{
+	margin-top:5px;
+	margin-bottom:10px;
+	font-size: 15px;
+}
+
+.news-show .news-footer{
+	margin-top:5px;
+	padding-top:10px;
+	font-size: 1.1em;
+	border-top: 1px solid #eaeaea;
+}
+
+.news-show .news-commentnum{
+	float:right;
+	font-size: 1.3em;
+}
+
+.news-show .news-categories{
+	float:left;
+}
+
+.news-show .news-impressions{
+	float:right;	
+}
+
+.news-show .news-footer{
+	border-top: 1px solid #eaeaea;
+	margin-top:5px;	
+	margin-bottom:10px;
+}

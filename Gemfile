@@ -29,6 +29,6 @@ gem 'will_paginate-bootstrap'
 gem 'carrierwave'
 #Stars
 gem 'jquery-star-rating-rails'
-
+gem "anything_slider-rails", "~> 0.0.3"
 # Pretty URL
 # gem 'friendly_id'

@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require jquery.socialist
 //= require jquery-star-rating
-//= require_tree .
+//= require social-likes.min
+//= require_directory .

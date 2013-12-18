@@ -1,6 +1,8 @@
 @import "bootstrap";
 @import "bootstrap-theme";
 
+/* application wide css*/
+
 /* universal */
 
 html {
@@ -11,7 +13,7 @@ html {
 }
 
 body {
-  padding-top: 120px;
+  margin-top: 110px;
 }
 
 section {
@@ -75,6 +77,13 @@ p {
 
 .mypanel-category > .panel-footer + .panel-collapse .panel-body {
   border-bottom-color: #222222;
+}
+
+/* header*/
+
+header{
+  padding-top:5px;
+  font-size:1.2em;
 }
 
 

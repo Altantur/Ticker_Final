@@ -2,9 +2,11 @@
 <html>
 <head>
   <title>Тнгри.ком | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "custom", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "custom" %>
+  <%= javascript_include_tag "application", "highcharts" %>
   <%= csrf_meta_tags %>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
 </head>
 <body>
 
@@ -28,14 +30,17 @@
 		<%end%>
 		<%= yield %>
 	</div>
+	
 	<div class="col-md-3">
+
 		<% if params[:controller] == "categories"  %>
 		<%= render 'layouts/cate'%>
+		<%= render 'layouts/videoslider'%>
 		<% end %>
 		<%= render 'layouts/social'%>
 		<%= render 'layouts/rss'%>
-	</div>
 
+	</div>
 </div>
 </div>
 

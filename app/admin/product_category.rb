@@ -1,3 +1,3 @@
 ActiveAdmin.register ProductCategory do
-menu :parent => "Product"
+menu :parent => "Debug"
 end
