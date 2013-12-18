@@ -45,9 +45,12 @@
               <div class="row" style="border-top:thin solid grey;">
                 <nav>
                   <ul class="navbar-form pull-left list-inline">
-                    <li style="color:#428bca">Топ Мэдээллүүд</li>
+                    <li style="color:#428bca">Топ Мэдээлэл</li>
+                    <% i=0 %>
                     <% Category.all.each do |category| %>
                     <li><%= link_to category.name,    '/categories/'+category.name %></li>
+                    <% i+=1 %>
+                    <% if i>4 then break end %>
                     <% end %>
                   </ul>
                 </nav>
