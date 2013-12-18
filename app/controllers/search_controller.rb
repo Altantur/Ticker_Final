@@ -12,9 +12,18 @@ class SearchController < ApplicationController
     	sql = a.to_sql
     	sql = sql[1,sql.length-2]
 		@posts = News.find_by_sql(sql)
+
+    tur = ProductCategory.where(category_id:idd)
+    tur.each do |temper|
+      @pro = Product.where(id:temper.product_id)
+    end
+    
     else
     	@posts = posts1
+      @pro = nil
     end
   	@posts = @posts.paginate(page: params[:page], order: 'created_at DESC', per_page: 2)
+     
+
   end
 end
