@@ -7,7 +7,7 @@
 	 <%=newsitem.created_at.strftime("%Y оны %m сарын %d") %>
 </span>
 <span class="news-commentnum">
-	<fb:comments-count href="<%= root_url + "/news/" + newsitem.id.to_s %>"></fb:comments-count> коммент байна
+	<fb:comments-count href="<%= root_url + "news/" + newsitem.id.to_s %>"></fb:comments-count> коммент байна
 </span>
     	<%= link_to image_tag(newsitem.image_path, :alt => newsitem.title, :title => newsitem.title, :style =>"width:100%" ), "/news/" + newsitem.id.to_s %>
         
