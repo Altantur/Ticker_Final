@@ -51,4 +51,6 @@ Ticker::Application.routes.draw do
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
+  match '/static_pages', :to =>'static_pages#index'
+  match '/static_pages/:id', :to => 'static_pages#show'
 end
