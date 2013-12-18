@@ -1,7 +1,16 @@
-	<% title @page.title %>
-	<div class="panel mypanel-category">
-	<div class="panel-heading"><%= link_to @page.title , "/news/" + @page.id.to_s %></div>
-    	<%= link_to image_tag(@page.image_path_url, :alt => @page.title, :title => @page.title, :style =>"width:100%" ), "/news/" + @page.id.to_s %>
-    	<div class="panel-body"><%=@page.content %></div>
-    	<div class="panel-footer">Бичсэн: <%=@page.created_at.strftime("%Y/%m/%d-ний %H:%M") %></div>
-  </div>
+<% title @page.title %>
+<div class="news-show">
+<h2><%= link_to @page.title , "/news/" + @page.id.to_s %></h2>
+<span class="news-date">
+	 <%=@page.created_at.strftime("%Y оны %m сарын %d") %>
+</span>
+<ul class="social-likes">
+	<li class="facebook" title="Share link on Facebook">Лаик</li>
+	<li class="twitter" title="Share link on Twitter">Жиргэ</li>
+	<li class="plusone" title="Share link on Google+">Гүүгл+</li>
+</ul>
+<%= link_to image_tag(@page.image_path, :alt => @page.title, :title => @page.title, :style =>"width:100%" ), "/news/" + @page.id.to_s %>
+<div class="news-post"><%= raw(@page.content) %></div>
+<br />
+<div class="fb-comments" data-href="<%=request.url%>" data-numposts="10" data-colorscheme="light" width="800px"></div>
+</div>

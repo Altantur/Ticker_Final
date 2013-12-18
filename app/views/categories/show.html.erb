@@ -3,28 +3,29 @@
     	<h2><%= @categoryname + " сэдвийн тухай мэдээлэл" %></h2>
     	</div>
 <% @posts.each do |newsitem| %>
-	<div class="news-show">
-    	<h2><%= link_to newsitem.title , "/news/" + newsitem.id.to_s %></h2>
+    <div class="news-show">
+        <h2><%= link_to newsitem.title , "/news/" + newsitem.id.to_s %></h2>
 
-    	<span class="news-date">
-	 <%=newsitem.created_at.strftime("%Y оны %m сарын %d") %>
+        <span class="news-date">
+     <%=newsitem.created_at.strftime("%Y оны %m сарын %d") %>
 </span>
 <span class="news-commentnum">
-	<fb:comments-count href="<%= "http://www.tngri.com/" + "/news/" + newsitem.id.to_s %>"></fb:comments-count> коммент байна
+    <fb:comments-count href="<%= root_url + "/news/" + newsitem.id.to_s %>"></fb:comments-count> коммент байна
 </span>
-    	<%= link_to image_tag(newsitem.image_path, :alt => newsitem.title, :title => newsitem.title, :style =>"width:100%" ), "/news/" + newsitem.id.to_s %>
-    	<div class="news-post"><%= raw(newsitem.body) %></div>
-    	<div class="news-footer">
-    	</div>
-  </div>
-
-<ul class="social-likes" data-url="<%= "http://www.tngri.com/" + "/news/" + newsitem.id.to_s %>">
-	<li class="facebook" title="Share link on Facebook">Лаик</li>
-	<li class="twitter" title="Share link on Twitter">Жиргэ</li>
-	<li class="plusone" title="Share link on Google+">Гүүгл+</li>
+        <%= link_to image_tag(newsitem.image_path, :alt => newsitem.title, :title => newsitem.title, :style =>"width:100%" ), "/news/" + newsitem.id.to_s %>
+        
+        <div class="news-post"><%= raw(newsitem.body.split("\n")[0])%><br /><span style="text-  align:right"><%= link_to "...илүү ихийг..." , "/news/" + newsitem.id.to_s %></span></div>
+        <div class="news-footer">
+            <ul class="social-likes" data-url="<%= root_url + "news/" + newsitem.id.to_s %>">
+    <li class="facebook" title="Share link on Facebook">Лаик</li>
+    <li class="twitter" title="Share link on Twitter">Жиргэ</li>
+    <li class="plusone" title="Share link on Google+">Гүүгл+</li>
 </ul>
+        </div>
+  </div>
 
 <% end %>
 <div style="text-align:center">
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Өмнөх", next_label: "Дараах" %>
 </div>
+

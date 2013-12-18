@@ -8,4 +8,8 @@ def show
 	@page = StaticPage.find(params[:id])
 end	
 
+def error
+end	
+
+
 end
