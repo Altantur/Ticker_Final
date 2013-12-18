@@ -33,14 +33,13 @@
 	<% @poll = Poll.last %>
 	<% puts @poll %>
 	<div class="col-md-3">
-
+		<%= render 'layouts/social'%>
 		<% if params[:controller] == "categories" || params[:controller] == "search" %>
 		<%= render 'layouts/cate'%>
 		<% elsif params[:controller] == "categories" %>
 		<%= render 'layouts/cate'%>
 		<%= render 'layouts/videoslider'%>
 		<% end %>
-		<%= render 'layouts/social'%>
 		<%= render 'layouts/rss'%>
 
 	</div>

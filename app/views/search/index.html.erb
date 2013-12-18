@@ -2,7 +2,9 @@
 <div class="news-show">
     	<h2><%= '"' + @searchterm + '" утгын хайлтын илэрц' %></h2>
     	</div>
+        <% i=0%>
 <% @posts.each do |newsitem| %>
+    <% i= 1%>
 	<div class="news-show">
     	<h2><%= link_to newsitem.title , "/news/" + newsitem.id.to_s %></h2>
 
@@ -15,16 +17,21 @@
     	<%= link_to image_tag(newsitem.image_path, :alt => newsitem.title, :title => newsitem.title, :style =>"width:100%" ), "/news/" + newsitem.id.to_s %>
     	<div class="news-post"><%= raw(newsitem.body) %></div>
     	<div class="news-footer">
+            <ul class="social-likes" data-url="<%= "http://www.tngri.com/" + "/news/" + newsitem.id.to_s %>">
+    <li class="facebook" title="Share link on Facebook">Лаик</li>
+    <li class="twitter" title="Share link on Twitter">Жиргэ</li>
+    <li class="plusone" title="Share link on Google+">Гүүгл+</li>
+</ul>
     	</div>
   </div>
 
-<ul class="social-likes" data-url="<%= "http://www.tngri.com/" + "/news/" + newsitem.id.to_s %>">
-	<li class="facebook" title="Share link on Facebook">Лаик</li>
-	<li class="twitter" title="Share link on Twitter">Жиргэ</li>
-	<li class="plusone" title="Share link on Google+">Гүүгл+</li>
-</ul>
-
 <% end %>
+<% if i==0 %>
+<div class="news-show">
+    <div class="news-post">мэдээ байхгүй байна</div>
+</div>
+<% end %>
+
 <div style="text-align:center">
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Өмнөх", next_label: "Дараах" %>
 </div>

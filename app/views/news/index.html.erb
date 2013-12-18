@@ -1,5 +1,7 @@
 <% title "Нүүр" %>
+        <% i=0%>
 <% @posts.each do |newsitem| %>
+    <% i= 1%>
 	<div class="news-show">
     	<h2><%= link_to newsitem.title , "/news/" + newsitem.id.to_s %></h2>
 
@@ -22,6 +24,12 @@
   </div>
 
 <% end %>
+<% if i==0 %>
+<div class="news-show">
+    <div class="news-post">мэдээ байхгүй байна</div>
+</div>
+<% end %>
+
 <div style="text-align:center">
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Өмнөх", next_label: "Дараах" %>
 </div>
