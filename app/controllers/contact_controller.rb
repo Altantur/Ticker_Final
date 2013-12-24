@@ -1,9 +1,11 @@
 class ContactController < ApplicationController
 	def new
+		@banner = Ads.last
 		@message = Message.new
 	end
 
 	def create
+		@banner = Ads.last
 		@message = Message.new(params[:message])
 
 		if @message.valid?

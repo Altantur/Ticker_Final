@@ -1,9 +1,11 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all
+    @banner = Ads.last
   end
 
   def show
+    @banner = Ads.last
     @categories = Category.all
     @categoryname = Category.find_by_name(params[:name]).name
     idd = Category.find_by_name(params[:name])

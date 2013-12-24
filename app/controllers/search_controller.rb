@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
+    @banner = Ads.last
   	require 'will_paginate/array'
   	posts1 = News.where('body LIKE ? or title LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%")
 
