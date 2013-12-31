@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
 	    session[:user_id] = auth.user_id
 	    temp=User.find(auth.user_id).name;
 		redirect_to "/"
-
+		@poll = Poll.last
+    	@count = Answer.find_by_sql("select * from answers where poll_id = #{@poll.id}")
 	  end
 	end
 

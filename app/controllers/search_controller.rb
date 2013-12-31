@@ -24,7 +24,8 @@ class SearchController < ApplicationController
       @pro = nil
     end
   	@posts = @posts.paginate(page: params[:page], order: 'created_at DESC', per_page: 2)
-     
+    @poll = Poll.last
+    @count = Answer.find_by_sql("select * from answers where poll_id = #{@poll.id}")     
 
   end
 end

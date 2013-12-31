@@ -2,6 +2,8 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @banner = Ads.last
+    @poll = Poll.last
+    @count = Answer.find_by_sql("select * from answers where poll_id = #{@poll.id}")
   end
 
   def show
@@ -32,7 +34,7 @@ end
     @pro.each do |product|
         @chararray << product.name
     end
-
+    @count = Answer.find_by_sql("select * from answers where poll_id = #{@poll.id}")
     @loca = Location.all
 
     @proloc = ProductLocation.all
