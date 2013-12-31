@@ -41,8 +41,20 @@
 		<%= render 'layouts/cate'%>
 		<%= render 'layouts/videoslider'%>
 		<% end %>
-		<%= render 'layouts/rss'%>
 		<%= render 'layouts/banner'%>
+		
+
+	<%= form_for @count, url: {controller: "poll", action: "give"}, method:'get' do |answer| %>
+		<%= label(@poll.value, @poll.value) %>
+		<% for answer in @count %>
+		<br/>
+		<%= radio_button_tag(answer.value, "choose") %>
+		<%= label(answer.value, answer.value) %>
+		<% end %>
+		<br/>
+		<%= submit_tag "Санал өгөх" %>
+	<% end %>
+
 </div>
 </div>
 </div>

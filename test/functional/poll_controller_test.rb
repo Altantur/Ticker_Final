@@ -11,4 +11,9 @@ class PollControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get give" do
+    get :give
+    assert_response :success
+  end
+
 end

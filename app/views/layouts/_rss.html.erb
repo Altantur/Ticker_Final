@@ -1,0 +1,42 @@
+<script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '<%= @poll.value %>'
+        },
+        tooltip: {
+    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '<%= @poll.value %>',
+            data: [
+            <% for slice in @count %>
+            <% unless slice.result %>
+            <% slice.result = 0.to_s %>
+            <% end %>
+                ['<%= slice.value %>', <%= slice.result.to_i %>],
+            <% end %>
+            ]
+        }]
+    });
+});
+</script>
+<div id="container" style="width: 400px; height: 600px"></div>
